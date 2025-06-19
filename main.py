@@ -4,8 +4,9 @@ from bs4 import BeautifulSoup
 from datetime import date
 from liturgy import *
 import os
+from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QPushButton, QTextEdit
 
-
+# No more universal variables.
 daily_reading = {}
 conn = sqlite3.connect('readings.db')
 cursor = conn.cursor()
@@ -18,9 +19,6 @@ cursor.execute('''
     )
 ''')
 conn.commit()
-
-#print(os.path.abspath('readings.db'))
-
 
 def get_readings(today):
 
@@ -74,8 +72,6 @@ def send_readings_to_db(readings):
     conn.commit()
     print("Readings saved to database.")
 
-    conn.close()
-
     return
 
 def get_db_input():
@@ -124,5 +120,7 @@ if __name__ == "__main__":
         get_db_input()
 
     get_new_date_input()
+
+    conn.close()
 
     
