@@ -3,8 +3,6 @@ import sqlite3
 from bs4 import BeautifulSoup
 from datetime import date
 from liturgy import *
-import os
-from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QPushButton, QTextEdit
 
 # No more universal variables.
 daily_reading = {}
